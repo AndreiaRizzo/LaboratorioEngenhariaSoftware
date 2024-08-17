@@ -1,4 +1,4 @@
-
+//semana 01
 function parImpar() {
     
     let numero = prompt("Digite um número inteiro positivo:");
@@ -91,3 +91,4 @@ function verificarTipoDado() {
     }
 }
 
+//semana 02
