@@ -15,17 +15,7 @@ h2 {
 }
 
 button {
-    display: block;
-    min-width: 200px;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
+    
 }
 
 button:hover {
@@ -34,6 +24,7 @@ button:hover {
 
 .box {
     border: 1px solid #000;
+    min-width: 200px;
     padding: 20px;
     text-align: center;
     background-color: #f8f9fa;
