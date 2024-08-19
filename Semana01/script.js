@@ -16,20 +16,29 @@ function parImpar() {
     }
 }
 
+function ehPrimo(num) {
+    if (num === 1) return false; 
+    if (num === 2) return true;  
+    if (num % 2 === 0) return false; 
 
-// Função para verificar se um número é primo
+    for (let i = 3; i <= Math.sqrt(num); i += 2) {
+        if (num % i === 0) return false;
+    }
+    
+    return true;
+}
+// Math.sqrt é uma função embutida em JavaScript que retorna a raiz quadrada de um número
+
 function verificarPrimo() {
-    // Solicita ao usuário um número inteiro positivo
+  
     let numero = prompt("Digite um número inteiro positivo:");
-
-    // Converte a entrada para um número inteiro
     numero = parseInt(numero);
 
     // Verifica se o número é válido (inteiro e positivo)
     if (isNaN(numero) || numero <= 0) {
         alert("Por favor, digite um número inteiro positivo válido.");
     } else {
-        // Verifica se o número é primo
+        
         if (ehPrimo(numero)) {
             alert("O número " + numero + " é primo.");
         } else {
@@ -38,57 +47,54 @@ function verificarPrimo() {
     }
 }
 
-function ehPrimo(num) {
-    if (num === 1) return false; // 1 não é primo
-    if (num === 2) return true;  // 2 é o único número par primo
-    if (num % 2 === 0) return false; // Números pares maiores que 2 não são primos
 
-    for (let i = 3; i <= Math.sqrt(num); i += 2) {
-        if (num % i === 0) return false;
-    }
 
-    return true;
-}
 
-// Função para calcular o fatorial de um número
 function calcularFatorial() {
-    // Solicita ao usuário um número inteiro positivo
+    
     let numero = prompt("Digite um número inteiro positivo:");
-
-    // Converte a entrada para um número inteiro
     numero = parseInt(numero);
 
-    // Verifica se o número é válido (inteiro e positivo)
     if (isNaN(numero) || numero < 0) {
         alert("Por favor, digite um número inteiro positivo válido.");
     } else {
-        // Calcula o fatorial
+        
         let fatorial = 1;
         for (let i = 1; i <= numero; i++) {
             fatorial *= i;
         }
-        
-        // Exibe o resultado
         alert("O fatorial de " + numero + " é " + fatorial + ".");
     }
 }
 
-// Função para solicitar um dado e verificar o tipo
+
 function verificarTipoDado() {
-    // Solicita ao usuário a entrada de um dado
     let dado = prompt("Digite qualquer valor:");
-
-    // Pergunta se o usuário deseja verificar o tipo do dado
     let desejaVerificar = confirm("Deseja verificar o tipo do dado informado?");
-
-    // Se o usuário confirmar, exibe o tipo do dado no corpo da página
+    
+  
     if (desejaVerificar) {
-        let tipoDado = typeof dado;
-        document.body.innerHTML += `<p>O tipo do dado informado é: ${tipoDado}</p>`;
+        let tipoDado;
+
+        // Tenta converter para número
+        if (!isNaN(dado) && dado.trim() !== "") {
+            // Verifica se é um número inteiro
+            if (Number.isInteger(Number(dado))) {
+                tipoDado = "Number (Inteiro)";
+            } else {
+                tipoDado = "Number (Float)";
+            }
+        } else {
+            tipoDado = typeof dado;
+        }
+
+        // Exibe o tipo do dado no corpo da página
+        document.body.innerHTML += `<p class='mensagem'>O tipo do dado informado é: ${tipoDado}</p>`;
     } else {
         // Caso contrário, exibe uma mensagem de agradecimento
-        document.body.innerHTML += "<p>Obrigado por visitar esta página.</p>";
+        document.body.innerHTML += "<p class='mensagem'>Obrigado por visitar esta página.</p>";
     }
 }
 
-//semana 02
+
+
