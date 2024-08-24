@@ -30,7 +30,12 @@ document.getElementById("dataAtual").innerText = formatarData();
 atualizarRelogio();
 
 function verificarPalindromo() {
-    const texto = document.getElementById("textoInput").value;
+    const texto = document.getElementById("textoInput").value.trim(); //a função trim remove espaços em brancos no inicio ou final
+
+    if (texto === "") {
+        alert("Por favor, digite uma palavra ou frase.");
+    return; // Sai da função se o campo estiver vazio
+    }
 
     // Função que remove espaços, acentos e converte para minúsculas
     function formatarTexto(str) {
