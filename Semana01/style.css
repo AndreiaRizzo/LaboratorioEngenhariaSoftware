@@ -1,7 +1,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #cdc7d4, #2575fc);
+    background: linear-gradient(to right, #cdc7d4, #55ddb4);
     color: #333;
     justify-content: center;
     align-items: center;
@@ -43,6 +43,6 @@ button {
 }
 
 button:hover {
-    background-color: #a0457d;
+    background-color: #77e4b1;
 }
 

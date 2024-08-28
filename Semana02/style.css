@@ -1,12 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #cdc7d4, #2575fc);
+    background: linear-gradient(to right, #cdc7d4, #252d3a);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    margin: 10px;
 }
 
 #dataAtual, 
@@ -36,7 +36,7 @@ button {
     padding: 2px 6px;
     width: 30%;
     font-size: 1px;
-    background-color: #99aed4;
+    background-color: #667081;
     color: #fff;
     border: 2px solid #333;
     border-radius: 3px;
@@ -46,6 +46,6 @@ button {
 }
 
 button:hover {
-    background-color: #1a71ac;
+    background-color: #1f2223;
 }
 
