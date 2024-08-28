@@ -1,0 +1,19 @@
+/* Estilização personalizada para o menu e conteúdo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  h4 {
+    color: #007bff;
+    margin-bottom: 1rem;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  .iframe-container {
+    margin-bottom: 2rem;
+  }
+  
