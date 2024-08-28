@@ -11,11 +11,23 @@
   </head>
 
   <body>
-    <h3>Cadastro de usuário</h3>
-    <form id="userForm">
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="name" requerid /><br /><br />
-    </form>
-    
+    <div class="form-container">
+      <h3>Cadastro de Usuário</h3>
+      <form id="userForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" required /><br /><br />
+
+        <label for="corFav">Cor Favorita:</label>
+        <input type="text" id="corFav" name="corFav" required /><br /><br />
+
+        <button type="submit">Adicionar Usuário</button>
+        <button type="button" id="viewListButton">Ver Lista Atualizada</button>
+      </form>
+      <h4>Lista de usuários</h4>
+      <ol id="userList"></ol>
+    </div>
   </body>
 </html>

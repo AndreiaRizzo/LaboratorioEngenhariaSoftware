@@ -30,7 +30,7 @@ function updateUserList() {
 
     users.forEach(user => {
         let li = document.createElement('li');
-        li.textContent = `Nome: ${user.name}, Idade: ${user.age}, Cor Preferida: ${user.favoriteColor}`;
+        li.textContent = `${user.name} possui ${user.idade} anos e sua cor favorita é ${user.corFav}`;
         userList.appendChild(li);
     });
 }
