@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Formulário de Cadastro:</h1>
+        <form id="form-cadastro">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+                <small class="error" id="nome-erro">Nome inválido</small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="fulano@exemplo.com" required>
+                <small class="error" id="email-erro">Email inválido</small>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="telefone-fixo">Telefone Fixo:</label>
+                    <input type="tel" id="telefone-fixo" placeholder="(99)9999-9999" required>
+                    <small class="error" id="telefone-fixo-erro">Telefone fixo inválido</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone-celular">Telefone Celular:</label>
+                    <input type="tel" id="telefone-celular" placeholder="(99)99999-9999" required>
+                    <small class="error" id="telefone-celular-erro">Telefone celular inválido</small>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="data-nascimento">Data Nascimento:</label>
+                    <input type="date" id="data-nascimento" required>
+                    <small class="error" id="data-nascimento-erro">Data de nascimento inválida</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo">Tipo:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="professor" name="tipo" value="Professor" required>
+                        <label for="professor">Professor</label>
+
+                        <input type="radio" id="aluno" name="tipo" value="Aluno" required>
+                        <label for="aluno">Aluno</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" id="curso-ou-area">
+                <label for="area">Área de Atuação:</label>
+                <input type="text" id="area" placeholder="Digite sua área de atuação">
+                <small class="error" id="area-erro">Campo obrigatório</small>
+            </div>
+
+            <div class="form-group" id="lattes-container">
+                <label for="lattes">Lattes:</label>
+                <input type="url" id="lattes" placeholder="Digite o endereço para seu Lattes">
+            </div>
+
+            <div class="form-group" id="matricula-container">
+                <label for="matricula">Matrícula:</label>
+                <input type="text" id="matricula" placeholder="Digite sua matrícula">
+                <small class="error" id="matricula-erro">Matrícula inválida</small>
+            </div>
+
+            <div class="button-group">
+                <button type="submit">Enviar</button>
+                <button type="reset">Redefinir</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
