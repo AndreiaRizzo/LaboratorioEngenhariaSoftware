@@ -84,12 +84,12 @@ document.addEventListener("DOMContentLoaded", function() {
       cursoOuArea.querySelector('label').innerText = 'Área de Atuação:';
       cursoOuArea.querySelector('input').setAttribute('placeholder', 'Digite sua área de atuação');
       lattesContainer.style.display = 'block';
-      document.getElementById('area').style.display = 'none';
+      document.getElementById('curso-ou-area').style.display = 'none';
     } else if (tipo === 'Aluno') {
       cursoOuArea.querySelector('label').innerText = 'Curso:';
       cursoOuArea.querySelector('input').setAttribute('placeholder', 'Digite seu curso');
       lattesContainer.style.display = 'none';
-      document.getElementById('area').style.display = 'block';
+      document.getElementById('curso-ou-area').style.display = 'block';
     }
   }
 
