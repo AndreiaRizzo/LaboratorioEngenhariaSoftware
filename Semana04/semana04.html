@@ -45,7 +45,8 @@
                   <input type="tel" id="telefone-fixo" placeholder="(99)9999-9999" required onblur="validarTelefoneFixo()" />
                   <small class="error" id="telefone-fixo-erro">Telefone fixo inválido</small>
                 </div>
-
+              </td>
+              <td>
                 <div class="form-group">
                   <label for="telefone-celular">Telefone Celular:</label>
                   <input type="tel" id="telefone-celular" placeholder="(99)99999-9999" required onblur="validarTelefoneCelular()" />
@@ -57,23 +58,28 @@
             <td>
               <div class="form-group">
                 <div class="radio-group">
-                  <input type="radio" id="professor" name="tipo" value="Professor" required onclick="alternarCampos()" />
-                  <label for="professor">Professor</label>
-                  <input type="radio" id="aluno" name="tipo" value="Aluno" required onclick="alternarCampos()" />
-                  <label for="aluno">Aluno</label>
+                  <div>
+                    <input type="radio" id="professor" name="tipo" value="Professor" required onclick="alternarCampos()" />
+                    <label for="professor">Professor</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="aluno" name="tipo" value="Aluno" required onclick="alternarCampos()" />
+                    <label for="aluno">Aluno</label>
+                  </div>
                 </div>
               </div>
             </td>
           </tr>
           <tr>
-            <td id="curso-ou-area">
+            <td id="curso-ou-area" colspan='2'>
               <div class="form-group">
+                
                 <label for="area">Área de Atuação:</label>
                 <input type="text" id="area" placeholder="Digite sua área de atuação" />
                 <small class="error" id="area-erro">Campo obrigatório</small>
               </div>
             </td>
-            <td id="matricula-container">
+            <td id="matricula-container" colspan='1'>
               <div class="form-group">
                 <label for="matricula">Matrícula:</label>
                 <input type="text" id="matricula" placeholder="Digite sua matrícula" required onblur="validarMatricula()" />
@@ -82,23 +88,18 @@
             </td>
           </tr>
           <tr id="lattes-container">
-            <td>
+            <td colspan ='3'> 
               <div class="form-group">
                 <label for="lattes">Lattes:</label>
                 <input type="url" id="lattes" placeholder="Digite o endereço para seu Lattes" />
               </div>
             </td>
           </tr>
-          
-          <tr>
-            <td colspan='3'>
-              <div class="button-group">
-                <button type="submit">Enviar</button>
-                <button type="reset">Redefinir</button>
-              </div>
-            </td>
-          </tr>
-        </table>
+        </table>  
+        <div class="button-group">
+          <button type="submit">Enviar</button>
+          <button type="reset">Redefinir</button>
+        </div>      
       </form>
     </div>
 

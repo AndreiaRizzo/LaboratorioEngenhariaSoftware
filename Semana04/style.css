@@ -77,7 +77,6 @@ input[type="date"] {
   width: 100%;
 }
 
-
 .radio-group {
   display: block;
   align-items: center;
@@ -92,12 +91,14 @@ input[type="date"] {
 
 .button-group {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Espaço entre os botões */
+  margin-top: 20px; /* Espaçamento opcional acima dos botões */
 }
 
 button {
-  padding: 10px 20px;
+  padding: 5px 20px;
   font-size: 12px;
   font-family: Helvetica, sans-serif;
   background-color: #eee;
