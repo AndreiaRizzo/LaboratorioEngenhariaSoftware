@@ -23,23 +23,40 @@ function Professor(nome, email, dataNascimento, telefoneFixo, telefoneCelular, a
 
 // Validação de nome
 function validarNome() {
-  const nome = document.getElementById("nome").value;
-  const regex = /^[A-Za-z]+ [A-Za-z]+$/; // Formato: Nome Sobrenome
-  if (!regex.test(nome)) {
-    document.getElementById("nome-erro").style.display = "block";
+  const nome = document.getElementById("nome").value.trim(); // Remove espaços no início e no fim
+  const erroNome = document.getElementById("nome-erro");
+  
+  // Regex para validar ao menos dois nomes com letras, espaços, acentos e hífens
+  const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)+$/;
+  
+  if (nome === "") {
+    erroNome.style.display = "block";
+    erroNome.textContent = "O campo nome não pode estar vazio.";
+  } else if (!regex.test(nome)) {
+    erroNome.style.display = "block";
+    erroNome.textContent = "Nome inválido! Por favor, insira nome e sobrenome.";
   } else {
-    document.getElementById("nome-erro").style.display = "none";
+    erroNome.style.display = "none";
   }
 }
 
+
 // Validação de email
 function validarEmail() {
-  const email = document.getElementById("email").value;
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!regex.test(email)) {
-    document.getElementById("email-erro").style.display = "block";
+  const email = document.getElementById("email").value.trim(); // Remove espaços extras
+  const erroemail = document.getElementById("email-erro");
+  
+  // Regex para validação de e-mail (aceita e-mails com letras, números, pontos, hífens e mais)
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+  if (email === "") {
+    erroemail.style.display = "block";
+    erroemail.textContent = "O campo e-mail não pode estar vazio.";
+  } else if (!regex.test(email)) {
+    erroemail.style.display = "block";
+    erroemail.textContent = "E-mail inválido! Por favor, insira um e-mail válido.";
   } else {
-    document.getElementById("email-erro").style.display = "none";
+    erroemail.style.display = "none";
   }
 }
 

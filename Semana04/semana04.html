@@ -16,18 +16,19 @@
             <tr>
               <td colspan='3'>
                 <div class="form-group">
-                  <label for="nome">Nome:</label>
-                  <input type="text" id="nome" placeholder="Digite seu nome completo" required onblur="validarNome()" />
-                  <small class="error" id="nome-erro">Nome inválido</small>
+                  <label for="nome">Nome Completo:</label>
+                  <input type="text" id="nome" placeholder="Digite seu nome completo" onblur="validarNome()" required>
+                  <small id="nome-erro" style="color: red; display: none;">Nome inválido! Use pelo menos nome e sobrenome.</small>
+
                 </div>
               </td>
             </tr>
             <tr>
               <td colspan='2'>
                 <div class="form-group">
-                  <label for="email">Email:</label>
-                  <input type="email" id="email" placeholder="fulano@exemplo.com" required onblur="validarEmail()" />
-                  <small class="error" id="email-erro">Email inválido</small>
+                  <label for="email">E-mail:</label>
+                  <input type="email" id="email" placeholder="Digite seu e-mail" onblur="validarEmail()" required>
+                  <small id="email-erro" style="color: red; display: none;">E-mail inválido!</small>
                 </div>
               </td>
             
@@ -92,7 +93,7 @@
               <td colspan ='3'> 
                 <div class="form-group">
                   <label for="lattes">Lattes:</label>
-                  <input type="url" id="lattes" placeholder="Digite o endereço para seu Lattes" />
+                  <input type="url" id="lattes" placeholder="Digite o endereço" />
                 </div>
               </td>
             </tr>
