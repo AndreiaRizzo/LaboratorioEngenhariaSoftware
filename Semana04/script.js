@@ -1,144 +1,159 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById('form-cadastro');
+// Classe Pessoa
+function Pessoa(nome, email, dataNascimento, telefoneFixo, telefoneCelular) {
+  this.nome = nome;
+  this.email = email;
+  this.dataNascimento = dataNascimento;
+  this.telefoneFixo = telefoneFixo;
+  this.telefoneCelular = telefoneCelular;
+}
 
-  function validarNome() {
-    const nome = document.getElementById('nome');
-    const erroNome = document.getElementById('nome-erro');
-    const regexNome = /^[a-zA-Z]+\s[a-zA-Z]+$/;
+// Classe Aluno herda de Pessoa
+function Aluno(nome, email, dataNascimento, telefoneFixo, telefoneCelular, curso, matricula) {
+  Pessoa.call(this, nome, email, dataNascimento, telefoneFixo, telefoneCelular);
+  this.curso = curso;
+  this.matricula = matricula;
+}
 
-    if (!regexNome.test(nome.value)) {
-      erroNome.style.display = 'block';
-    } else {
-      erroNome.style.display = 'none';
-    }
+// Classe Professor herda de Pessoa
+function Professor(nome, email, dataNascimento, telefoneFixo, telefoneCelular, area, matricula) {
+  Pessoa.call(this, nome, email, dataNascimento, telefoneFixo, telefoneCelular);
+  this.area = area;
+  this.matricula = matricula;
+}
+
+// Validação de nome
+function validarNome() {
+  const nome = document.getElementById("nome").value;
+  const regex = /^[A-Za-z]+ [A-Za-z]+$/; // Formato: Nome Sobrenome
+  if (!regex.test(nome)) {
+    document.getElementById("nome-erro").style.display = "block";
+  } else {
+    document.getElementById("nome-erro").style.display = "none";
   }
+}
 
-  function validarEmail() {
-    const email = document.getElementById('email');
-    const erroEmail = document.getElementById('email-erro');
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!regexEmail.test(email.value)) {
-      erroEmail.style.display = 'block';
-    } else {
-      erroEmail.style.display = 'none';
-    }
+// Validação de email
+function validarEmail() {
+  const email = document.getElementById("email").value;
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regex.test(email)) {
+    document.getElementById("email-erro").style.display = "block";
+  } else {
+    document.getElementById("email-erro").style.display = "none";
   }
+}
 
-  function validarData() {
-    const dataNascimento = document.getElementById('data-nascimento');
-    const erroData = document.getElementById('data-nascimento-erro');
-    const regexData = /^\d{2}\/\d{2}\/\d{4}$/;
-
-    if (!regexData.test(dataNascimento.value)) {
-      erroData.style.display = 'block';
-    } else {
-      erroData.style.display = 'none';
-    }
+// Validação de data de nascimento
+function validarData() {
+  const data = document.getElementById("dataNascimento").value;
+  const regex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+  if (!regex.test(data)) {
+    document.getElementById("erroData").style.display = "block";
+  } else {
+    document.getElementById("erroData").style.display = "none";
   }
+}
 
-  // Máscara para telefone fixo: (xx)xxxx-xxxx
-  function mascaraTelefoneFixo(telefone) {
-    let valor = telefone.value.replace(/\D/g, ""); // Remove tudo que não é dígito
-    valor = valor.replace(/^(\d{2})(\d)/g, "($1)$2"); // Coloca parênteses em volta dos dois primeiros dígitos
-    valor = valor.replace(/(\d{4})(\d)/, "$1-$2"); // Coloca um traço entre o quarto e o quinto dígito
-    telefone.value = valor;
+// Validação de telefone fixo
+function validarTelefoneFixo() {
+  const telefoneFixo = document.getElementById("telefone-fixo").value;
+  const regex = /^\(\d{2}\)\d{4}-\d{4}$/; // Formato: (XX)XXXX-XXXX
+  if (!regex.test(telefoneFixo)) {
+    document.getElementById("telefone-fixo-erro").style.display = "block";
+  } else {
+    document.getElementById("telefone-fixo-erro").style.display = "none";
   }
+}
 
-  // Máscara para telefone celular: (xx)xxxxx-xxxx
-  function mascaraTelefoneCelular(telefone) {
-    let valor = telefone.value.replace(/\D/g, ""); // Remove tudo que não é dígito
-    valor = valor.replace(/^(\d{2})(\d)/g, "($1)$2"); // Coloca parênteses em volta dos dois primeiros dígitos
-    valor = valor.replace(/(\d{5})(\d)/, "$1-$2"); // Coloca um traço entre o quinto e o sexto dígito
-    telefone.value = valor;
+// Validação de telefone celular
+function validarTelefoneCelular() {
+  const telefoneCelular = document.getElementById("telefone-celular").value;
+  const regex = /^\(\d{2}\)\d{5}-\d{4}$/; // Formato: (XX)XXXXX-XXXX
+  if (!regex.test(telefoneCelular)) {
+    document.getElementById("telefone-celular-erro").style.display = "block";
+  } else {
+    document.getElementById("telefone-celular-erro").style.display = "none";
   }
+}
 
-  function validarTelefoneFixo() {
-    const telefoneFixo = document.getElementById('telefone-fixo');
-    const erroTelefoneFixo = document.getElementById('telefone-fixo-erro');
-    const regexTelefoneFixo = /^\(\d{2}\)\d{4}-\d{4}$/;
-
-    if (!regexTelefoneFixo.test(telefoneFixo.value)) {
-      erroTelefoneFixo.style.display = 'block';
-    } else {
-      erroTelefoneFixo.style.display = 'none';
-    }
-  }
-
-  function validarTelefoneCelular() {
-    const telefoneCelular = document.getElementById('telefone-celular');
-    const erroTelefoneCelular = document.getElementById('telefone-celular-erro');
-    const regexTelefoneCelular = /^\(\d{2}\)\d{5}-\d{4}$/;
-
-    if (!regexTelefoneCelular.test(telefoneCelular.value)) {
-      erroTelefoneCelular.style.display = 'block';
-    } else {
-      erroTelefoneCelular.style.display = 'none';
-    }
-  }
-
-  function validarMatricula() {
-    const matricula = document.getElementById('matricula');
-    const erroMatricula = document.getElementById('matricula-erro');
-    const tipo = document.querySelector('input[name="tipo"]:checked').value;
-    const regexMatricula = tipo === 'Professor' ? /^\d{5}$/ : /^\d{10}$/;
-
-    if (!regexMatricula.test(matricula.value)) {
-      erroMatricula.style.display = 'block';
-    } else {
-      erroMatricula.style.display = 'none';
-    }
-  }
-
-  function alternarCampos() {
-    const tipo = document.querySelector('input[name="tipo"]:checked').value;
-    const cursoOuArea = document.getElementById('curso-ou-area');
-    const lattesContainer = document.getElementById('lattes-container');
-    const matriculaContainer = document.getElementById('matricula-container');
-
-    if (tipo === 'Professor') {
-      cursoOuArea.querySelector('label').innerText = 'Área de Atuação:';
-      cursoOuArea.querySelector('input').setAttribute('placeholder', 'Digite sua área de atuação');
-      lattesContainer.style.display = 'block';
-      document.getElementById('curso-ou-area').style.display = 'none';
-    } else if (tipo === 'Aluno') {
-      cursoOuArea.querySelector('label').innerText = 'Curso:';
-      cursoOuArea.querySelector('input').setAttribute('placeholder', 'Digite seu curso');
-      lattesContainer.style.display = 'none';
-      document.getElementById('curso-ou-area').style.display = 'block';
-    }
-  }
-
-  form.addEventListener('submit', function (event) {
-    validarNome();
-    validarEmail();
-    validarData();
-    validarTelefoneFixo();
-    validarTelefoneCelular();
-    validarMatricula();
-
-    const erros = document.querySelectorAll('.error');
-    let temErro = false;
-    erros.forEach(erro => {
-      if (erro.style.display === 'block') {
-        temErro = true;
-      }
-    });
-
-    if (temErro) {
-      event.preventDefault();
-    }
-  });
-
-  document.getElementById('telefone-fixo').addEventListener('input', function (e) {
-    e.target.value = e.target.value.replace(/\D/g, '')
-      .replace(/^(\d{2})(\d)/, '($1) $2')
-      .replace(/(\d{4})(\d)/, '$1-$2');
-  });
-
-  document.getElementById('telefone-celular').addEventListener('input', function (e) {
-    e.target.value = e.target.value.replace(/\D/g, '')
-      .replace(/^(\d{2})(\d)/, '($1) $2')
-      .replace(/(\d{5})(\d)/, '$1-$2');
-  });
+// Formatação automática de telefones
+document.getElementById("telefone-fixo").addEventListener("input", function (e) {
+  let value = e.target.value.replace(/\D/g, "");
+  if (value.length > 10) value = value.slice(0, 10);
+  value = value.replace(/^(\d{2})(\d{4})(\d{0,4})$/, "($1)$2-$3");
+  e.target.value = value;
 });
+
+document.getElementById("telefone-celular").addEventListener("input", function (e) {
+  let value = e.target.value.replace(/\D/g, "");
+  if (value.length > 11) value = value.slice(0, 11);
+  value = value.replace(/^(\d{2})(\d{5})(\d{0,4})$/, "($1)$2-$3");
+  e.target.value = value;
+});
+
+// Validação de matrícula
+function validarMatricula() {
+  const matricula = document.getElementById("matricula").value;
+  const tipo = document.querySelector('input[name="tipo"]:checked').value;
+  const regexAluno = /^\d{10}$/; // 10 dígitos para Aluno
+  const regexProfessor = /^\d{5}$/; // 5 dígitos para Professor
+
+  if ((tipo === "Aluno" && !regexAluno.test(matricula)) || (tipo === "Professor" && !regexProfessor.test(matricula))) {
+    document.getElementById("matricula-erro").style.display = "block";
+  } else {
+    document.getElementById("matricula-erro").style.display = "none";
+  }
+}
+
+// Alterna campos entre Professor e Aluno
+function alternarCampos() {
+  const tipo = document.querySelector('input[name="tipo"]:checked').value;
+  const areaOuCurso = document.getElementById("curso-ou-area");
+  const lattesContainer = document.getElementById("lattes-container");
+
+  if (tipo === "Aluno") {
+    areaOuCurso.querySelector("label").innerText = "Curso:";
+    areaOuCurso.querySelector("input").placeholder = "Digite seu curso";
+    lattesContainer.style.display = "none";
+  } else {
+    areaOuCurso.querySelector("label").innerText = "Área:";
+    areaOuCurso.querySelector("input").placeholder = "Digite sua área";
+    lattesContainer.style.display = "block";
+  }
+}
+
+// Validação completa do formulário
+function validarFormulario(event) {
+  event.preventDefault();
+
+  validarNome();
+  validarEmail();
+  validarData();
+  validarTelefoneFixo();
+  validarTelefoneCelular();
+  validarMatricula();
+
+  if (document.querySelectorAll(".error:visible").length === 0) {
+    const tipo = document.querySelector('input[name="tipo"]:checked').value;
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const dataNascimento = document.getElementById("dataNascimento").value;
+    const telefoneFixo = document.getElementById("telefone-fixo").value;
+    const telefoneCelular = document.getElementById("telefone-celular").value;
+    const matricula = document.getElementById("matricula").value;
+    const cursoOuArea = document.getElementById("area").value;
+
+    let pessoa;
+
+    if (tipo === "Aluno") {
+      pessoa = new Aluno(nome, email, dataNascimento, telefoneFixo, telefoneCelular, cursoOuArea, matricula);
+    } else {
+      pessoa = new Professor(nome, email, dataNascimento, telefoneFixo, telefoneCelular, cursoOuArea, matricula);
+    }
+
+    console.log(pessoa);
+    alert("Dados enviados com sucesso!");
+  } else {
+    alert("Preencha corretamente todos os campos.");
+  }
+}

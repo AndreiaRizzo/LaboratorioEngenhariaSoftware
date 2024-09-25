@@ -26,7 +26,7 @@ h1 {
 
 .form-table {
   width: 100%;
-  border-collapse: separate; 
+  border-collapse: separate;
 }
 
 .form-table td {
@@ -38,7 +38,6 @@ h1 {
 }
 
 .form-group label {
-  
   font-size: 10px;
   font-weight: bold;
   color: rgba(34, 34, 34, 0.9);
@@ -47,11 +46,11 @@ h1 {
 
 input[type="date"] {
   font-size: 12px;
-  color: #999;  
+  color: #999;
   border: 1px solid #ccc;
-  width: 100%; /* Mantém o input ocupando toda a largura */
-  padding: 1px 0; 
-  background-color: transparent; /* Remove fundo branco padrão do campo de data */
+  width: 100%;
+  padding: 1px 0;
+  background-color: transparent;
 }
 
 .form-group input[type="text"],
@@ -59,7 +58,7 @@ input[type="date"] {
 .form-group input[type="date"],
 .form-group input[type="tel"],
 .form-group input[type="url"] {
-  width: calc(100% - 10px); /* Ajusta a largura para considerar o padding */
+  width: calc(100% - 10px);
   padding: 8px;
   font-size: 12px;
   color: #999;
@@ -78,9 +77,14 @@ input[type="date"] {
 }
 
 .radio-group {
-  display: block;
-  align-items: center;
+  display: flex;
   gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 5px;
 }
 
 .error {
@@ -93,8 +97,8 @@ input[type="date"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* Espaço entre os botões */
-  margin-top: 20px; /* Espaçamento opcional acima dos botões */
+  gap: 20px;
+  margin-top: 20px;
 }
 
 button {
@@ -117,4 +121,56 @@ button:hover {
 
 button[type="reset"]:hover {
   background-color: #5a6268;
+}
+
+.form-group textarea {
+  width: calc(100% - 10px);
+  padding: 8px;
+  font-size: 12px;
+  color: #999;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 50px;
+  box-sizing: border-box;
+}
+
+.form-table th {
+  font-size: 10px;
+  font-weight: bold;
+  color: rgba(34, 34, 34, 0.9);
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+.form-table tr {
+  border-bottom: 1px solid #ccc;
+}
+
+.form-table td {
+  padding-bottom: 10px;
+}
+
+input[type="radio"] {
+  margin-left: 0;
+}
+
+input[type="radio"] + label {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  font-size: 12px;
+  color: #999;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
 }
