@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById('form-cadastro');
 
   function validarNome() {
@@ -35,6 +35,22 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
       erroData.style.display = 'none';
     }
+  }
+
+  // Máscara para telefone fixo: (xx)xxxx-xxxx
+  function mascaraTelefoneFixo(telefone) {
+    let valor = telefone.value.replace(/\D/g, ""); // Remove tudo que não é dígito
+    valor = valor.replace(/^(\d{2})(\d)/g, "($1)$2"); // Coloca parênteses em volta dos dois primeiros dígitos
+    valor = valor.replace(/(\d{4})(\d)/, "$1-$2"); // Coloca um traço entre o quarto e o quinto dígito
+    telefone.value = valor;
+  }
+
+  // Máscara para telefone celular: (xx)xxxxx-xxxx
+  function mascaraTelefoneCelular(telefone) {
+    let valor = telefone.value.replace(/\D/g, ""); // Remove tudo que não é dígito
+    valor = valor.replace(/^(\d{2})(\d)/g, "($1)$2"); // Coloca parênteses em volta dos dois primeiros dígitos
+    valor = valor.replace(/(\d{5})(\d)/, "$1-$2"); // Coloca um traço entre o quinto e o sexto dígito
+    telefone.value = valor;
   }
 
   function validarTelefoneFixo() {
@@ -93,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  form.addEventListener('submit', function(event) {
+  form.addEventListener('submit', function (event) {
     validarNome();
     validarEmail();
     validarData();
@@ -114,13 +130,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  document.getElementById('telefone-fixo').addEventListener('input', function(e) {
+  document.getElementById('telefone-fixo').addEventListener('input', function (e) {
     e.target.value = e.target.value.replace(/\D/g, '')
       .replace(/^(\d{2})(\d)/, '($1) $2')
       .replace(/(\d{4})(\d)/, '$1-$2');
   });
 
-  document.getElementById('telefone-celular').addEventListener('input', function(e) {
+  document.getElementById('telefone-celular').addEventListener('input', function (e) {
     e.target.value = e.target.value.replace(/\D/g, '')
       .replace(/^(\d{2})(\d)/, '($1) $2')
       .replace(/(\d{5})(\d)/, '$1-$2');
