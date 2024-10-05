@@ -1,7 +1,7 @@
 function Letreiro() {
   const [texto, setTexto] = React.useState('');
   const frase = "Venha estudar na Fatec";
-  const velocidade = 160; // Velocidade de digitação em milissegundos
+  const velocidade = 170; // Velocidade de digitação em milissegundos
 
   React.useEffect(() => {
     let index = 0;
